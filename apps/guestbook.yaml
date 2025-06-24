@@ -14,7 +14,7 @@ spec:
     namespace: default
   syncPolicy:
     automated:
-      prune: true         # Delete resources not in Git anymore
-      selfHeal: true      # Re-apply if someone changes the resource manually
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
