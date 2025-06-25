@@ -17,5 +17,7 @@ spec:
           image: hashicorp/http-echo:0.2.3
           args:
             - "-text=hello from micro2"
+            - "-listen=:5678"
+            - "-listen-path=/"
           ports:
             - containerPort: 5678
