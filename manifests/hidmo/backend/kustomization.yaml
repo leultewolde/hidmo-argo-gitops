@@ -2,3 +2,5 @@ resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
+  - microservices/micro1
+  - microservices/micro2
