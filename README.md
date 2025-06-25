@@ -7,6 +7,7 @@ This repository manages ArgoCD projects and apps declaratively via GitOps.
 - `projects/` – ArgoCD `AppProject` definitions
 - `apps/` – ArgoCD `Application` definitions
 - `manifests/` – Raw Kubernetes resources for workloads
+- `manifests/hidmo/backend/` – Backend service exposed at `api.hidmo.leultewolde.com`
 
 ## Bootstrap
 
