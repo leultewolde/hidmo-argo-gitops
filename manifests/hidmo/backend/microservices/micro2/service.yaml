@@ -7,5 +7,5 @@ spec:
     app: micro2
   ports:
     - port: 80
-      targetPort: 80
+      targetPort: 5678
   type: ClusterIP

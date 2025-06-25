@@ -14,6 +14,8 @@ spec:
     spec:
       containers:
         - name: micro1
-          image: nginx:1.25-alpine
+          image: hashicorp/http-echo:0.2.3
+          args:
+            - "-text=hello from micro1"
           ports:
-            - containerPort: 80
+            - containerPort: 5678
