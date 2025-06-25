@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hidmo-backend
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: api.hidmo.leultewolde.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: hidmo-backend
+                port:
+                  number: 80
