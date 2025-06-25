@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: api.hidmo.leultewolde.com
+    - host: api-hidmo.leultewolde.com
       http:
         paths:
           - path: /
