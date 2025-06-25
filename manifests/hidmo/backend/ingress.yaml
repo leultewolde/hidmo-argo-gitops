@@ -19,3 +19,17 @@ spec:
                 name: hidmo-backend
                 port:
                   number: 80
+          - path: /micro1
+            pathType: Prefix
+            backend:
+              service:
+                name: micro1
+                port:
+                  number: 80
+          - path: /micro2
+            pathType: Prefix
+            backend:
+              service:
+                name: micro2
+                port:
+                  number: 80
