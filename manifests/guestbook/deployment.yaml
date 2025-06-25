@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: guestbook
-          image: gcr.io/google-samples/guestbook:v2
+          image: k8s.gcr.io/echoserver:1.10
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
