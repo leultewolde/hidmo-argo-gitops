@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: hidmo-backend
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
@@ -13,15 +13,15 @@ spec:
     - host: api-hidmo.leultewolde.com
       http:
         paths:
-          - path: /micro1(/|$)(.*)
-            pathType: ImplementationSpecific
+          - path: /micro1
+            pathType: Prefix
             backend:
               service:
                 name: micro1
                 port:
                   number: 80
-          - path: /micro2(/|$)(.*)
-            pathType: ImplementationSpecific
+          - path: /micro2
+            pathType: Prefix
             backend:
               service:
                 name: micro2
