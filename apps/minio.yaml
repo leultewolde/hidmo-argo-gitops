@@ -9,9 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: oci://registry-1.docker.io/bitnamicharts
+    repoURL: https://charts.bitnami.com/bitnami
     chart: minio
-    targetRevision: 12.7.3
+    targetRevision: 17.0.8
     helm:
       values: |
         auth:
