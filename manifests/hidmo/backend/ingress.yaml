@@ -14,14 +14,14 @@ spec:
       http:
         paths:
           - path: /micro1(/|$)(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: micro1
                 port:
                   number: 80
           - path: /micro2(/|$)(.*)
-            pathType: Prefix
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: micro2
