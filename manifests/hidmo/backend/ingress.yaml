@@ -2,31 +2,12 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hidmo-backend
-  annotations:
-    # nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
-  ingressClassName: nginx
+  ingressClassName: kong
   rules:
     - host: api-hidmo.leultewolde.com
       http:
         paths:
-          - path: /micro1(/|$)(.*)
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: micro1
-                port:
-                  number: 80
-          - path: /micro2(/|$)(.*)
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: micro2
-                port:
-                  number: 80
           - path: /
             pathType: Prefix
             backend:
