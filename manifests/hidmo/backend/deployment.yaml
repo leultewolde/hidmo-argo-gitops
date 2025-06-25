@@ -13,7 +13,23 @@ spec:
         app: hidmo-backend
     spec:
       containers:
-        - name: hidmo-backend
-          image: nginx:1.25-alpine
+        - name: kong
+          image: kong:3.5-alpine
+          env:
+            - name: KONG_DATABASE
+              value: "off"
+            - name: KONG_DECLARATIVE_CONFIG
+              value: /etc/kong/kong.yml
+            - name: KONG_ADMIN_LISTEN
+              value: "0.0.0.0:8001"
+          volumeMounts:
+            - name: kong-config
+              mountPath: /etc/kong
           ports:
-            - containerPort: 80
+            - containerPort: 8000
+            - containerPort: 8443
+            - containerPort: 8001
+      volumes:
+        - name: kong-config
+          configMap:
+            name: kong-config

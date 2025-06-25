@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kong-config
+  labels:
+    app: hidmo-backend
+data:
+  kong.yml: |
+    _format_version: "3.0"
+    services:
+      - name: micro1
+        url: http://micro1
+        routes:
+          - name: micro1
+            paths:
+              - /micro1
+      - name: micro2
+        url: http://micro2
+        routes:
+          - name: micro2
+            paths:
+              - /micro2
