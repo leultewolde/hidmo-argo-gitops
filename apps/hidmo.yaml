@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hidmo-backend
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/leultewolde/hidmo-argo-gitops.git
+    targetRevision: HEAD
+    path: manifests/hidmo/backend
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: hidmo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

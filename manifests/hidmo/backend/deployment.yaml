@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hidmo-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hidmo-backend
+  template:
+    metadata:
+      labels:
+        app: hidmo-backend
+    spec:
+      containers:
+        - name: hidmo-backend
+          image: nginx:1.25-alpine
+          ports:
+            - containerPort: 80
