@@ -18,6 +18,5 @@ spec:
           args:
             - "-text=hello from micro2"
             - "-listen=:5678"
-            - "-listen-path=/"
           ports:
             - containerPort: 5678
