@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: minio
-    targetRevision: 17.0.8
+    targetRevision: 17.0.5
     helm:
       values: |
         image:
