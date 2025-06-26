@@ -15,9 +15,7 @@ spec:
     helm:
       values: |
         image:
-          registry: docker.io
-          repository: bitnami/minio
-          tag: 2025.5.24  # ✅ known valid tag (from Bitnami chart repo)
+          tag: 2025.6.13-debian-12-r0
 
         auth:
           rootUser: minioadmin
@@ -45,6 +43,8 @@ spec:
 
         console:
           enabled: true
+          image:
+            tag: 2.0.2-debian-12-r0
           service:
             type: ClusterIP
 
