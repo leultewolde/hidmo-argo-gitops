@@ -9,6 +9,7 @@ This repository manages ArgoCD projects and apps declaratively via GitOps.
 - `manifests/` – Raw Kubernetes resources for workloads
 - `manifests/hidmo/backend/` – Backend service exposed at `api.hidmo.leultewolde.com`
   - `microservices/` – Example microservice deployments (micro1, micro2)
+- `apps/minio.yaml` – Minio object storage exposed via `minio.leultewolde.com`
 
 ## Bootstrap
 
