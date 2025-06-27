@@ -1,0 +1,12 @@
+auth:
+  username: appuser
+  database: appdb
+  existingSecret: postgres-credentials
+primary:
+  persistence:
+    size: 1Gi
+    storageClass: standard
+  service:
+    type: LoadBalancer
+    annotations:
+      external-dns.alpha.kubernetes.io/hostname: postgres.leultewolde.com
