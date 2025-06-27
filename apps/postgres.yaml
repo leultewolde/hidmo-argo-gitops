@@ -9,8 +9,6 @@ spec:
     repoURL: https://github.com/leultewolde/hidmo-argo-gitops.git
     targetRevision: HEAD
     path: manifests/postgres
-    kustomize:
-      enableHelm: true
   destination:
     server: https://kubernetes.default.svc
     namespace: postgres
