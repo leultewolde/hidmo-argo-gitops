@@ -1,16 +1,16 @@
 resources:
   - deployment.yaml
   - service.yaml
-  - db-job.yaml
-  - migrate-job.yaml
+  # - db-job.yaml
+  # - migrate-job.yaml
 
 generatorOptions:
   disableNameSuffixHash: true
 
-configMapGenerator:
-  - name: micro1-migrations
-    files:
-      - sql/V1__init.sql
-  - name: micro1-create-db
-    files:
-      - sql/create-db.sql
+# configMapGenerator:
+#   - name: micro1-migrations
+#     files:
+#       - sql/V1__init.sql
+#   - name: micro1-create-db
+#     files:
+#       - sql/create-db.sql
