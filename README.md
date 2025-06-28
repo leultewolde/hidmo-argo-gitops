@@ -19,3 +19,7 @@ This repository manages ArgoCD projects and apps declaratively via GitOps.
 
 Create a bootstrap ArgoCD `Application` pointing to the `apps/` directory.
 
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
