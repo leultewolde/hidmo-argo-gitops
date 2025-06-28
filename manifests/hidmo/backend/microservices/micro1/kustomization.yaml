@@ -2,7 +2,7 @@ resources:
   - deployment.yaml
   - service.yaml
   - db-job.yaml
-  - migrate-job.yaml
+  # - migrate-job.yaml
 
 generatorOptions:
   disableNameSuffixHash: true
