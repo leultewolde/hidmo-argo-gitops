@@ -6,4 +6,4 @@ helmCharts:
     namespace: postgres
     valuesFile: values.yaml
 resources:
-  - secret.yaml
+  - ./secret.yaml
