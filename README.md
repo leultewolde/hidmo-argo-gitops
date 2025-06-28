@@ -11,8 +11,8 @@ This repository manages ArgoCD projects and apps declaratively via GitOps.
   - `microservices/` – Example microservice deployments (micro1, micro2) each
     with jobs to create their database and run Flyway migrations. SQL scripts are
     stored alongside the manifests in `.sql` files.
-- `manifests/postgres/` – Contains a values file for the Bitnami PostgreSQL Helm chart and a `SealedSecret` for credentials.
-- `apps/postgres.yaml` – Argo CD application that installs the chart using Helm. The `apps/postgres-secret.yaml` application applies the secret first so credentials exist before the release is deployed.
+- `manifests/postgres/` – Holds `values.yaml` for the Bitnami PostgreSQL Helm chart and a `SealedSecret` with the database password.
+- `apps/postgres.yaml` – Deploys the chart from the Bitnami repository using that values file. The `apps/postgres-secret.yaml` application syncs the credentials first so the Helm release can succeed.
 - PostgreSQL is reachable at `postgres.leultewolde.com` for apps and tools
 
 ## Bootstrap
