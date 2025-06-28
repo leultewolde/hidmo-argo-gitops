@@ -3,7 +3,6 @@ resources:
   - service.yaml
   - db-job.yaml
   - migrate-job.yaml
-  - secret.yaml
 
 generatorOptions:
   disableNameSuffixHash: true

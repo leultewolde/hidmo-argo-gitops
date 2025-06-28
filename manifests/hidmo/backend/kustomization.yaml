@@ -5,3 +5,4 @@ resources:
   - kong-config.yaml
   - microservices/micro1
   - microservices/micro2
+  - secret.yaml
