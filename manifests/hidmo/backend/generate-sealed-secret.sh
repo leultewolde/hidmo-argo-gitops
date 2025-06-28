@@ -4,7 +4,7 @@
 SECRET_NAME="postgres-credentials"
 SOURCE_NAMESPACE="hidmo"           # Where the original secret exists
 TARGET_NAMESPACE="hidmo"            # Where you want to apply the SealedSecret
-OUTPUT_FILE="secret.yaml"
+OUTPUT_FILE="secret.yaml"          # Output file for the SealedSecret
 SCOPE="namespace-wide"             # Options: strict | namespace-wide | cluster-wide
 
 # === VALIDATION ===
