@@ -12,7 +12,7 @@ spec:
     helm:
       values: |
         auth:
-          username: appuser
+          username: postgres
           database: appdb
           existingSecret: postgres-credentials
         primary:
