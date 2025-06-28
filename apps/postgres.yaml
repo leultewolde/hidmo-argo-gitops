@@ -18,7 +18,7 @@ spec:
         primary:
           persistence:
             size: 1Gi
-            storageClass: standard
+            storageClass: local-path
           service:
             type: LoadBalancer
             annotations:
