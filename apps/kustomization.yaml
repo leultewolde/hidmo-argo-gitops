@@ -1,4 +1,6 @@
 resources:
+  - postgres-secret.yaml
   - postgres.yaml
   - guestbook.yaml
   - hidmo.yaml
+
