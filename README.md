@@ -14,6 +14,7 @@ This repository manages ArgoCD projects and apps declaratively via GitOps.
 - `manifests/postgres/` – Holds `values.yaml` for the Bitnami PostgreSQL Helm chart and a `SealedSecret` with the database password.
 - `apps/postgres.yaml` – Deploys the chart from the Bitnami repository using that values file. The `apps/postgres-secret.yaml` application syncs the credentials first so the Helm release can succeed.
 - PostgreSQL is reachable at `postgres.leultewolde.com` for apps and tools
+- SonarQube is reachable at `sonar.leultewolde.com` with persistent storage
 
 ## Bootstrap
 
