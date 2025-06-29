@@ -25,6 +25,8 @@ spec:
             enabled: true
             storageClass: local-path
             size: 5Gi
+        monitoringPasscodeSecretName: sonarqube-monitoring
+        monitoringPasscodeSecretKey: passcode
       releaseName: sonarqube
   destination:
     server: https://kubernetes.default.svc

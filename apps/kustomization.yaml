@@ -3,5 +3,6 @@ resources:
   - postgres.yaml
   - guestbook.yaml
   - hidmo.yaml
+  - sonarqube-secret.yaml
   - sonarqube.yaml
 
