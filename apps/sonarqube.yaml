@@ -11,6 +11,8 @@ spec:
     targetRevision: 2025.3.1
     helm:
       values: |
+        community:
+          enabled: true
         persistence:
           enabled: true
           storageClass: local-path
