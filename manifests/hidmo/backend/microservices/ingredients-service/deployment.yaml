@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: km-ingredients-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: km-ingredients-service
+  template:
+    metadata:
+      labels:
+        app: km-ingredients-service
+    spec:
+      containers:
+        - name: km-ingredients-service
+          image: ivtheforth/km-ingredients-service:latest
+          ports:
+            - containerPort: 7001
+          env:
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: km-ingredients-secrets
+                  key: db-url
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: km-ingredients-secrets
+                  key: db-user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: km-ingredients-secrets
+                  key: db-password
+            - name: MINIO_URL
+              valueFrom:
+                secretKeyRef:
+                  name: km-ingredients-secrets
+                  key: minio-url
+            - name: MINIO_ACCESS_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: km-ingredients-secrets
+                  key: minio-access-name
+            - name: MINIO_ACCESS_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: km-ingredients-secrets
+                  key: minio-access-secret
+            - name: MINIO_BUCKET
+              valueFrom:
+                secretKeyRef:
+                  name: km-ingredients-secrets
+                  key: minio-bucket

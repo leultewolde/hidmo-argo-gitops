@@ -20,3 +20,9 @@ data:
           - name: micro2
             paths:
               - /micro2
+      - name: km-ingredients-service
+        url: http://km-ingredients-service
+        routes:
+          - name: km-ingredients-service
+            paths:
+              - /kitchen/ingredients

@@ -3,6 +3,9 @@ kind: Application
 metadata:
   name: hidmo-backend
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: service1=docker.io/ivtheforth/km-ingredients-service
+    argocd-image-updater.argoproj.io/km-ingredients-service.update-strategy: latest
 spec:
   project: default
   source:

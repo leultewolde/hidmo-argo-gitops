@@ -1,0 +1,17 @@
+resources:
+  - deployment.yaml
+  - service.yaml
+  - db-job.yaml
+  - migrate-job.yaml
+  - secret.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+configMapGenerator:
+  - name: ingredientsDB-migrations
+    files:
+      - sql/V1__init.sql
+  - name: ingredientsDB-create-db
+    files:
+      - sql/create-db.sql
