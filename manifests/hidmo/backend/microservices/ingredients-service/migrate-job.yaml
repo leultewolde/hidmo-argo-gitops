@@ -11,7 +11,7 @@ spec:
           image: flyway/flyway:9
           env:
             - name: FLYWAY_URL
-              value: jdbc:postgresql://postgres-postgresql.postgres.svc.cluster.local:5432/ingredientsDB
+              value: jdbc:postgresql://postgres-postgresql.postgres.svc.cluster.local:5432/ingredients_db
             - name: FLYWAY_USER
               value: postgres
             - name: FLYWAY_PASSWORD

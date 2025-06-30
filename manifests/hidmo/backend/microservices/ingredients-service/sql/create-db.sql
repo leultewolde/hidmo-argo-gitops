@@ -1,1 +1,1 @@
-CREATE DATABASE ingredientsDB;
+CREATE DATABASE ingredients_db;
