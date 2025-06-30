@@ -5,6 +5,9 @@ metadata:
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: km-ingredients-service=docker.io/ivtheforth/km-ingredients-service
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/write-back-target: kustomization
+    argocd-image-updater.argoproj.io/git-branch: main
     argocd-image-updater.argoproj.io/km-ingredients-service.update-strategy: latest
 spec:
   project: default
