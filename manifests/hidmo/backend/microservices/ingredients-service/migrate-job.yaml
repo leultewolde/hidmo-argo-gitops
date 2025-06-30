@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: ingredientsDB-migrate
+  name: ingredients-migrate
 spec:
   template:
     spec:
@@ -27,4 +27,4 @@ spec:
       volumes:
         - name: migrations
           configMap:
-            name: ingredientsDB-migrations
+            name: ingredients-migrations

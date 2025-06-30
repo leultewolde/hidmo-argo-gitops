@@ -9,9 +9,9 @@ generatorOptions:
   disableNameSuffixHash: true
 
 configMapGenerator:
-  - name: ingredientsDB-migrations
+  - name: ingredients-migrations
     files:
       - sql/V1__init.sql
-  - name: ingredientsDB-create-db
+  - name: ingredients-create-db
     files:
       - sql/create-db.sql
