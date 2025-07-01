@@ -35,6 +35,11 @@ spec:
             - type: HostPath
               hostPath: /var/run/docker.sock
               mountPath: /var/run/docker.sock
+        rbac:
+          create: false
+        serviceAccount:
+          create: false
+          name: jenkins
   destination:
     server: https://kubernetes.default.svc
     namespace: jenkins
