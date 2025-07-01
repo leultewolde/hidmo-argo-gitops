@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: km-ingredients-service
-          image: ivtheforth/km-ingredients-service:latest
+          image: docker.io/ivtheforth/km-ingredients-service:latest
           ports:
             - containerPort: 7001
           env:
