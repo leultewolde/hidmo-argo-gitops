@@ -15,4 +15,4 @@ configMapGenerator:
   - sql/create-db.sql
 images:
 - name: docker.io/ivtheforth/km-ingredients-service
-  newTag: 15988314744-39-0d1d85a127325a3dc982278635c232cca6cb688c
+  newTag: 16009558018-40-0d2c7a14230323e7a5b54a999b4a270b6fd052c6
