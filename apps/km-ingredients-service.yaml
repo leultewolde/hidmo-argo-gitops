@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hidmo-backend
+  name: km-ingredients-service
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: km-ingredients-service=docker.io/ivtheforth/km-ingredients-service
