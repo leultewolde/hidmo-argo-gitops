@@ -5,4 +5,5 @@ resources:
   - sonarqube-secret.yaml
   - sonarqube.yaml
   - km-ingredients-service.yaml
+  - jenkins.yaml
 

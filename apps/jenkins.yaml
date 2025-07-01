@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jenkins
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.jenkins.io
+    chart: jenkins
+    targetRevision: 5.8.63
+    helm:
+      values: |
+        controller:
+          runAsUser: 0
+          fsGroup: 0
+          installPlugins:
+            - kubernetes
+            - workflow-aggregator
+            - git
+            - docker-workflow
+        persistence:
+          enabled: true
+          storageClass: local-path
+          size: 10Gi
+        ingress:
+          enabled: true
+          hostName: jenkins.leultewolde.com
+          annotations:
+            external-dns.alpha.kubernetes.io/hostname: jenkins.leultewolde.com
+          path: /
+        agent:
+          privileged: true
+          volumes:
+            - type: HostPath
+              hostPath: /var/run/docker.sock
+              mountPath: /var/run/docker.sock
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: jenkins
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
