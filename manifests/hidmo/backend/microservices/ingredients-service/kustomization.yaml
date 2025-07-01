@@ -1,17 +1,18 @@
 resources:
-  - deployment.yaml
-  - service.yaml
-  - db-job.yaml
-  - migrate-job.yaml
-  - secret.yaml
-
+- deployment.yaml
+- service.yaml
+- db-job.yaml
+- migrate-job.yaml
+- secret.yaml
 generatorOptions:
   disableNameSuffixHash: true
-
 configMapGenerator:
-  - name: ingredients-migrations
-    files:
-      - sql/V1__init.sql
-  - name: ingredients-create-db
-    files:
-      - sql/create-db.sql
+- name: ingredients-migrations
+  files:
+  - sql/V1__init.sql
+- name: ingredients-create-db
+  files:
+  - sql/create-db.sql
+images:
+- name: docker.io/ivtheforth/km-ingredients-service
+  newTag: 15988314744-39-0d1d85a127325a3dc982278635c232cca6cb688c
