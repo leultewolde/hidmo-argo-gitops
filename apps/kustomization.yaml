@@ -1,7 +1,6 @@
 resources:
   - postgres-secret.yaml
   - postgres.yaml
-  - guestbook.yaml
   - hidmo.yaml
   - sonarqube-secret.yaml
   - sonarqube.yaml
