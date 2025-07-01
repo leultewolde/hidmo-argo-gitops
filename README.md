@@ -15,6 +15,7 @@ This repository manages ArgoCD projects and apps declaratively via GitOps.
 - `apps/postgres.yaml` – Deploys the chart from the Bitnami repository using that values file. The `apps/postgres-secret.yaml` application syncs the credentials first so the Helm release can succeed.
 - PostgreSQL is reachable at `postgres.leultewolde.com` for apps and tools
 - SonarQube is reachable at `sonar.leultewolde.com` with persistent storage
+- Jenkins is reachable at `jenkins.leultewolde.com` for CI/CD pipelines
 - Argo Image Updater keeps `km-ingredients-service` up to date automatically via git write-back.
 
 ## Bootstrap
