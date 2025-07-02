@@ -30,7 +30,6 @@ spec:
             external-dns.alpha.kubernetes.io/hostname: jenkins.leultewolde.com
           path: /
         agent:
-          image: docker:24.0.5-cli
           privileged: true
           volumes:
             - type: HostPath
