@@ -17,9 +17,9 @@ spec:
           ingress:
             enabled: true
             annotations:
-              external-dns.alpha.kubernetes.io/hostname: valult.leultewolde.com
+              external-dns.alpha.kubernetes.io/hostname: vault.leultewolde.com
             hosts:
-              - host: valult.leultewolde.com
+              - host: vault.leultewolde.com
                 paths: []
   destination:
     server: https://kubernetes.default.svc
