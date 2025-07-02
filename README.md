@@ -16,6 +16,7 @@ This repository manages ArgoCD projects and apps declaratively via GitOps.
 - PostgreSQL is reachable at `postgres.leultewolde.com` for apps and tools
 - SonarQube is reachable at `sonar.leultewolde.com` with persistent storage
 - Jenkins is reachable at `jenkins.leultewolde.com` for CI/CD pipelines
+- HashiCorp Vault UI is reachable at `valult.leultewolde.com` for managing secrets
 - Argo Image Updater keeps `km-ingredients-service` up to date automatically via git write-back.
 
 ## Bootstrap

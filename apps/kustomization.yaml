@@ -7,4 +7,5 @@ resources:
   - km-ingredients-service.yaml
   - jenkins.yaml
   - jenkins-rbac.yaml
+  - vault.yaml
 
