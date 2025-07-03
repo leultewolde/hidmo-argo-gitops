@@ -42,6 +42,18 @@ spec:
                         volumes:
                         - name: "dind-storage"
                           emptyDir: {}
+          sidecars:
+            configAutoReload:
+              enabled: true
+              image: "kiwigrid/k8s-sidecar:1.25.2"
+              imagePullPolicy: "IfNotPresent"
+              resources:
+                requests:
+                  cpu: "50m"
+                  memory: "64Mi"
+                limits:
+                  cpu: "50m"
+                  memory: "64Mi"
         persistence:
           enabled: true
           storageClass: local-path
