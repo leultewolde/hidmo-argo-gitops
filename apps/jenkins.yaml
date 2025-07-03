@@ -19,6 +19,29 @@ spec:
             - workflow-aggregator
             - git
             - docker-workflow
+          JCasC:
+            configScripts:
+              kubernetes-pod-template: |
+                jenkins:
+                  clouds:
+                  - kubernetes:
+                      name: "kubernetes"
+                      templates:
+                      - name: "docker-in-docker"
+                        label: "docker-in-docker"
+                        containers:
+                        - name: "jnlp"
+                          image: "jenkins/inbound-agent:latest"
+                          args: '${computer.jnlpmac} ${computer.name}'
+                        - name: "dind"
+                          image: "docker:24.0.5-dind"
+                          privileged: true
+                          volumeMounts:
+                          - name: "dind-storage"
+                            mountPath: "/var/lib/docker"
+                        volumes:
+                        - name: "dind-storage"
+                          emptyDir: {}
         persistence:
           enabled: true
           storageClass: local-path
@@ -31,22 +54,10 @@ spec:
           path: /
         agent:
           privileged: true
-          podTemplates:
-            - name: "docker-in-docker"
-              label: "docker-in-docker"
-              containers:
-                - name: "jnlp"
-                  image: "jenkins/inbound-agent:latest"
-                  args: '${computer.jnlpmac} ${computer.name}'
-                - name: "dind"
-                  image: "docker:24.0.5-dind" # Use a specific dind image version
-                  privileged: true
-                  volumeMounts:
-                    - name: "dind-storage"
-                      mountPath: "/var/lib/docker"
-              volumes:
-                - name: "dind-storage"
-                  emptyDir: {}
+          volumes:
+            - type: HostPath
+              hostPath: /var/run/docker.sock
+              mountPath: /var/run/docker.sock
         rbac:
           create: false
         serviceAccount:
