@@ -45,7 +45,6 @@ spec:
           sidecars:
             configAutoReload:
               enabled: true
-              # Corrected image structure to be a map instead of a string
               image:
                 repository: "kiwigrid/k8s-sidecar"
                 tag: "1.25.2"
