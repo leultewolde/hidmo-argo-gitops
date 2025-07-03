@@ -12,6 +12,12 @@ spec:
     helm:
       values: |
         controller:
+          additionalContainers:
+            - name: jnlp
+              image: bitnami/kubectl:1.30
+              tty: true
+              command:
+                - cat
           runAsUser: 0
           fsGroup: 0
           installPlugins:
