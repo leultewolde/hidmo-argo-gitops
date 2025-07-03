@@ -12,12 +12,21 @@ spec:
     helm:
       values: |
         controller:
-          additionalContainers:
-            - name: jnlp
-              image: bitnami/kubectl:1.30
-              tty: true
-              command:
-                - cat
+          JCasC:
+              configScripts:
+                kubernetes-agent: |
+                  jenkins:
+                    clouds:
+                      - kubernetes:
+                          name: kubernetes
+                          templates:
+                            - name: default
+                              label: jenkins-agent
+                              containers:
+                                - name: jnlp
+                                  image: bitnami/kubectl:1.30
+                                  command: ["cat"]
+                                  ttyEnabled: true
           runAsUser: 0
           fsGroup: 0
           installPlugins:
