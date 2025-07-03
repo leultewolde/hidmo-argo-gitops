@@ -12,21 +12,6 @@ spec:
     helm:
       values: |
         controller:
-          JCasC:
-              configScripts:
-                kubernetes-agent: |
-                  jenkins:
-                    clouds:
-                      - kubernetes:
-                          name: kubernetes
-                          templates:
-                            - name: default
-                              label: jenkins-agent
-                              containers:
-                                - name: jnlp
-                                  image: bitnami/kubectl:1.30
-                                  command: ["cat"]
-                                  ttyEnabled: true
           runAsUser: 0
           fsGroup: 0
           installPlugins:
@@ -46,10 +31,22 @@ spec:
           path: /
         agent:
           privileged: true
-          volumes:
-            - type: HostPath
-              hostPath: /var/run/docker.sock
-              mountPath: /var/run/docker.sock
+          podTemplates:
+            - name: "docker-in-docker"
+              label: "docker-in-docker"
+              containers:
+                - name: "jnlp"
+                  image: "jenkins/inbound-agent:latest"
+                  args: '${computer.jnlpmac} ${computer.name}'
+                - name: "dind"
+                  image: "docker:24.0.5-dind" # Use a specific dind image version
+                  privileged: true
+                  volumeMounts:
+                    - name: "dind-storage"
+                      mountPath: "/var/lib/docker"
+              volumes:
+                - name: "dind-storage"
+                  emptyDir: {}
         rbac:
           create: false
         serviceAccount:
