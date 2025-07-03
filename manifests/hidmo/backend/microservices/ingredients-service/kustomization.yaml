@@ -4,6 +4,7 @@ resources:
 - db-job.yaml
 - migrate-job.yaml
 - secret.yaml
+- kaniko-job.yaml
 generatorOptions:
   disableNameSuffixHash: true
 configMapGenerator:
