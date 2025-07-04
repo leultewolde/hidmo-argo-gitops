@@ -1,0 +1,15 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: vault-token
+  namespace: hidmo
+spec:
+  encryptedData:
+    VAULT_TOKEN: AgAxtrGsARBLMzZVflDBjcptTHQdT94apbccSFV4QZJogoCVngKXqV1HTwdxcBLHi0OpzO3fB0xSK7427pFaBfb4XAOz21oyMMVkrRAES+30naKc+BrUlDAw722mXjURV8FFhWHfEikXe8RoZX5tGu5Jba7aqs4odobH5q10xtgJJvn9t1k7om8bhBdK02RZVk4bid8k7mgds5l3Y1UNO2zkCBH2fJgAD/Jg3g+Jrkkg755Jl0ebgB+YFenxW3dkrtUBWhR+sf7UjBpdsSoUy2+I2tE5pUUSc2vbk0nX1fevpGg8Ti/+TDFh4OYHDCCfhGbpOqQ70oVA+NLJKLYuX/bUAD6EJFxpmWvHBJianllJBF6bS+47gqM7iiMMnUuLI1gP31lGaLNJg5GSIBgij/HF65/kkKAwo8OZQvR5Rq1q6DJ4QKyMbqYZBsLOnCAcHgIXeDXzZi/o4OcHAsco+BVEKtjicuXQLJz/pHgzAFU8YcOYSolewysLuoSu5/SnFPULnNOER4hfpQ5wdjFHk0NTfl5jAbaW9CH1lUQ++7U1aqDBTSakUYm5WTCp75W6XpkiPRT2q7MqgdSJwfV5oG4R0uFcnfO5815WzhuoWA5duKcXHsSqypHP5eCnEfSXF6zGzkuwneRBqENbnDsp5NaS835q0L7wrUQMq/uGQR/4avQJCcplKJznE8kT7Pg1nSn7kQXt9tsjapo0V5+XZaP9mRZcJPFaslnmPRJk
+  template:
+    metadata:
+      creationTimestamp: null
+      name: vault-token
+      namespace: hidmo
