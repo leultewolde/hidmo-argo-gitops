@@ -23,7 +23,7 @@ spec:
             - name: migrations
               mountPath: /flyway/sql
           command: ["flyway"]
-          args: ["repair"] # ✅ Change to ["repair"] if you want to repair first
+          args: ["migrate"] # ✅ Change to ["repair"] if you want to repair first
       volumes:
         - name: migrations
           configMap:
