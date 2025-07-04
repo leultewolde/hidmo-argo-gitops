@@ -18,6 +18,8 @@ spec:
           ports:
             - containerPort: 7001
           env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "prod"
             - name: DB_URL
               valueFrom:
                 secretKeyRef:
