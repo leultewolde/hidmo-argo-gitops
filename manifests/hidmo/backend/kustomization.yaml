@@ -5,4 +5,5 @@ resources:
   - kong-config.yaml
   - microservices/micro1
   - microservices/micro2
+  - microservices/ingredients-service
   - vault-token-sealed.yaml

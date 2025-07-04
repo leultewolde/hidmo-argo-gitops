@@ -3,7 +3,7 @@ resources:
 - service.yaml
 - db-job.yaml
 - migrate-job.yaml
-- secret.yaml
+# - secret.yaml
 # - kaniko-job.yaml
 generatorOptions:
   disableNameSuffixHash: true
@@ -14,6 +14,3 @@ configMapGenerator:
 - name: ingredients-create-db
   files:
   - sql/create-db.sql
-images:
-- name: docker.io/ivtheforth/km-ingredients-service
-  newTag: 48-48-latest
