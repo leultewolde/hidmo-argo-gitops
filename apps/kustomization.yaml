@@ -4,7 +4,7 @@ resources:
   - hidmo.yaml
   - sonarqube-secret.yaml
   - sonarqube.yaml
-  - km-ingredients-service.yaml
+  # - km-ingredients-service.yaml
   # - jenkins.yaml
   # - jenkins-rbac.yaml
   - vault.yaml
