@@ -27,3 +27,9 @@ Create a bootstrap ArgoCD `Application` pointing to the `apps/` directory.
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## Security Notes
+
+The `hidmo-backend` deployment now binds Kong's Admin API to `127.0.0.1` so it
+cannot be reached from other pods. Only the proxy ports are exposed via the
+`hidmo-backend` service and Ingress.
