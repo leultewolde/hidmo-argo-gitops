@@ -15,6 +15,7 @@ spec:
       containers:
         - name: km-ingredients-service
           image: docker.io/ivtheforth/km-ingredients-service:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8001
           env:
