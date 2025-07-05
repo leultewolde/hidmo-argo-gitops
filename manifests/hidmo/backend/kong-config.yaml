@@ -26,4 +26,3 @@ data:
           - name: km-ingredients-service
             paths:
               - /kitchen
-            strip_path: true
