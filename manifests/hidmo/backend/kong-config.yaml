@@ -21,7 +21,7 @@ data:
             paths:
               - /micro2
       - name: km-ingredients-service
-        url: http://km-ingredients-service
+        url: http://km-ingredients-service:8001
         routes:
           - name: km-ingredients-service
             paths:
