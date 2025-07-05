@@ -1,16 +1,16 @@
 resources:
 - deployment.yaml
 - service.yaml
-# - db-job.yaml
+- db-job.yaml
 # - migrate-job.yaml
 # - secret.yaml
 # - kaniko-job.yaml
 generatorOptions:
   disableNameSuffixHash: true
-# configMapGenerator:
+configMapGenerator:
 # - name: ingredients-migrations
 #   files:
 #   - sql/V1__init.sql
-# - name: ingredients-create-db
-  # files:
-  # - sql/create-db.sql
+- name: ingredients-create-db
+  files:
+  - sql/create-db.sql
