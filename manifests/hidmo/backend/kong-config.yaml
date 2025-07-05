@@ -25,5 +25,5 @@ data:
         routes:
           - name: km-ingredients-service
             paths:
-              - /kitchen
+              - /kitchen/stored-items
             strip_path: true
