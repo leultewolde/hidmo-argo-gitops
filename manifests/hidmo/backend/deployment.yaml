@@ -21,14 +21,14 @@ spec:
             - name: KONG_DECLARATIVE_CONFIG
               value: /etc/kong/kong.yml
             - name: KONG_ADMIN_LISTEN
-              value: "0.0.0.0:8001"
+              value: "0.0.0.0:8002"
           volumeMounts:
             - name: kong-config
               mountPath: /etc/kong
           ports:
             - containerPort: 8000
             - containerPort: 8443
-            - containerPort: 8001
+            - containerPort: 8002
       volumes:
         - name: kong-config
           configMap:
