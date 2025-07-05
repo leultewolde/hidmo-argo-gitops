@@ -33,15 +33,15 @@ spec:
             - containerPort: 8443
           livenessProbe:
             httpGet:
-              path: /
-              port: 8000
+              path: /status
+              port: 8100
             initialDelaySeconds: 5
             periodSeconds: 10
 
           readinessProbe:
             httpGet:
-              path: /
-              port: 8000
+              path: /status
+              port: 8100
             initialDelaySeconds: 5
             periodSeconds: 10
       volumes:
