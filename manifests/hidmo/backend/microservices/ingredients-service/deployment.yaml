@@ -16,7 +16,7 @@ spec:
         - name: km-ingredients-service
           image: docker.io/ivtheforth/km-ingredients-service:latest
           ports:
-            - containerPort: 7001
+            - containerPort: 8001
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "prod"
