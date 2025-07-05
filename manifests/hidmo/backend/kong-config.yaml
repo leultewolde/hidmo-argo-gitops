@@ -25,4 +25,4 @@ data:
         routes:
           - name: km-ingredients-service
             paths:
-              - /kitchen/ingredients
+              - /kitchen
