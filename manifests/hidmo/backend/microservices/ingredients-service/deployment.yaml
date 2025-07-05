@@ -68,7 +68,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
-              port: 7001
+              port: 8001
             initialDelaySeconds: 30
             periodSeconds: 10
             timeoutSeconds: 5
@@ -76,7 +76,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
-              port: 7001
+              port: 8001
             initialDelaySeconds: 5
             periodSeconds: 10
             timeoutSeconds: 5
