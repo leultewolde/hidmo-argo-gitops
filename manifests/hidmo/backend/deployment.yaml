@@ -23,6 +23,8 @@ spec:
             # Limit admin API to localhost so it is not reachable from other pods
             - name: KONG_ADMIN_LISTEN
               value: "127.0.0.1:8001"
+            - name: KONG_STATUS_LISTEN
+              value: "0.0.0.0:8100"
           volumeMounts:
             - name: kong-config
               mountPath: /etc/kong
