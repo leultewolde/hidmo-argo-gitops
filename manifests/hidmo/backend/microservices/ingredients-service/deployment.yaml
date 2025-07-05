@@ -68,7 +68,7 @@ spec:
             #       key: minio-bucket
           livenessProbe:
             httpGet:
-              path: /actuator/health/liveness
+              path: /kitchen/actuator/health/liveness
               port: 8001
             initialDelaySeconds: 30
             periodSeconds: 10
@@ -76,7 +76,7 @@ spec:
             failureThreshold: 3
           readinessProbe:
             httpGet:
-              path: /actuator/health/readiness
+              path: /kitchen/actuator/health/readiness
               port: 8001
             initialDelaySeconds: 5
             periodSeconds: 10
