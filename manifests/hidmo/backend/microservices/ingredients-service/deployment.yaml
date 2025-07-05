@@ -65,3 +65,19 @@ spec:
             #     secretKeyRef:
             #       name: km-ingredients-secrets
             #       key: minio-bucket
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 7001
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 7001
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
