@@ -16,7 +16,7 @@ spec:
         - name: micro1
           image: hashicorp/http-echo:0.2.3
           args:
-            - "-text=hello from micro1"
+            - "-text=Hello from test microservice 1"
             - "-listen=:5678"
           ports:
             - containerPort: 5678
