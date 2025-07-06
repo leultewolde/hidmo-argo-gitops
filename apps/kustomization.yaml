@@ -2,6 +2,8 @@ resources:
   - postgres-secret.yaml
   - postgres.yaml
   # - hidmo.yaml
+  - hidmo-backend.yaml
+  - hidmo-frontend.yaml
   - sonarqube-secret.yaml
   - sonarqube.yaml
   # - km-ingredients-service.yaml
