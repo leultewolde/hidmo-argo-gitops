@@ -10,8 +10,8 @@ spec:
     - host: kitchen.leultewolde.com
       http:
         paths:
-          - path: /
-            pathType: Prefix
+          - path: /.*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: kitchen-management-ui
