@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kitchen-management-ui
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: kitchen.leultewolde.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kitchen-management-ui
+                port:
+                  number: 80

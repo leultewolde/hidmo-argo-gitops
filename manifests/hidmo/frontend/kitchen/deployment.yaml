@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kitchen-management-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kitchen-management-ui
+  template:
+    metadata:
+      labels:
+        app: kitchen-management-ui
+    spec:
+      containers:
+        - name: kitchen-management-ui
+          image: ivtheforth/kitchen-management-ui:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: VITE_API_URL
+              value: "https://api-hidmo.leultewolde.com/kitchen/stored-items"
