@@ -6,4 +6,5 @@ resources:
   - microservices/micro1
   - microservices/micro2
   - microservices/ingredients-service
+  - microservices/external-service
   - vault-token-sealed.yaml

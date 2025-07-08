@@ -27,3 +27,10 @@ data:
             paths:
               - /kitchen/stored-items
             strip_path: true
+      - name: external-service
+        url: http://external-service:8080
+        routes:
+          - name: external-service
+            paths:
+              - /external
+            strip_path: true
