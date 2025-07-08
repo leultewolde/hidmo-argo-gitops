@@ -4,8 +4,13 @@ resources:
   # - hidmo.yaml
   - hidmo-backend.yaml
   - hidmo-frontend.yaml
+  - hidmo-backend-staging.yaml
+  - hidmo-frontend-staging.yaml
+  - hidmo-backend-systemtest.yaml
+  - hidmo-frontend-systemtest.yaml
   - sonarqube-secret.yaml
   - sonarqube.yaml
+  - artifactory.yaml
   # - km-ingredients-service.yaml
   # - jenkins.yaml
   # - jenkins-rbac.yaml
