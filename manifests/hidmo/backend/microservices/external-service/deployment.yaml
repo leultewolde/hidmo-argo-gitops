@@ -21,6 +21,8 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "prod"
+            - name: EXTERNAL_API_BASE_URL
+              value: "https://world.openfoodfacts.org"
             - name: VAULT_TOKEN
               valueFrom:
                 secretKeyRef:
