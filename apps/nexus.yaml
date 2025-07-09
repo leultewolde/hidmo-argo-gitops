@@ -13,7 +13,7 @@ spec:
     helm:
       values: |
         service:
-          type: LoadBalancer
+          type: NodePort
           annotations:
             external-dns.alpha.kubernetes.io/hostname: nexus.leultewolde.com
         ingress:
