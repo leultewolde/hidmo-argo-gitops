@@ -7,27 +7,33 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://oteemo.github.io/charts
-    chart: sonatype-nexus
-    targetRevision: 5.5.0
+    repoURL: https://github.com/sonatype/nxrm3-ha-repository
+    path: nxrm-ha
+    targetRevision: 82.0.0
     helm:
       values: |
-        nexus:
-          service:
-            type: NodePort
-            annotations:
-              external-dns.alpha.kubernetes.io/hostname: nexus.leultewolde.com
-        nexusProxy:
-          env:
-            nexusHttpHost: nexus.leultewolde.com
         ingress:
           enabled: true
+          host: nexus.leultewolde.com
+          hostPath: /
           annotations:
             external-dns.alpha.kubernetes.io/hostname: nexus.leultewolde.com
-          path: /
-          pathType: Prefix
-          tls:
-            enabled: false
+        service:
+          annotations:
+            external-dns.alpha.kubernetes.io/hostname: nexus.leultewolde.com
+          nexus:
+            enabled: true
+            type: NodePort
+        statefulset:
+          replicaCount: 1
+        container:
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "1Gi"
+            limits:
+              cpu: "1"
+              memory: "2Gi"
       releaseName: nexus
   destination:
     server: https://kubernetes.default.svc
