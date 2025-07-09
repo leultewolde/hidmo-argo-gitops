@@ -1,0 +1,33 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nexus
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://sonatype.github.io/helm3-charts
+    chart: nexus-repository-manager
+    targetRevision: 64.2.0
+    helm:
+      values: |
+        service:
+          type: LoadBalancer
+          annotations:
+            external-dns.alpha.kubernetes.io/hostname: nexus.leultewolde.com
+        ingress:
+          enabled: true
+          hostRepo: nexus.leultewolde.com
+          annotations:
+            external-dns.alpha.kubernetes.io/hostname: nexus.leultewolde.com
+      releaseName: nexus
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nexus
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
