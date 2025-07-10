@@ -20,6 +20,33 @@ This repository manages ArgoCD projects and apps declaratively via GitOps.
 - HashiCorp Vault UI is reachable at `vault.leultewolde.com` for managing secrets
 - Argo Image Updater keeps `km-ingredients-service` up to date automatically via git write-back.
 
+## Vault Secrets
+
+Create the following secrets in HashiCorp Vault under the `kv` engine. Argo's Vault Operator will sync them to Kubernetes using the `VaultStaticSecret` resources in this repo.
+
+| Vault path | Kubernetes secret | Keys |
+|------------|------------------|------|
+| `secret/hidmo/vault-token` | `vault-token` | `VAULT_TOKEN` |
+| `secret/hidmo/postgres-credentials` | `postgres-credentials` | `postgres-password`, `username` |
+| `secret/postgres/postgres-credentials` | `postgres-credentials` | `postgres-password` |
+| `secret/postgres-staging/postgres-credentials` | `postgres-credentials` | `postgres-password` |
+| `secret/postgres-systemtest/postgres-credentials` | `postgres-credentials` | `postgres-password` |
+| `secret/sonarqube/monitoring` | `sonarqube-monitoring` | `passcode` |
+
+Each namespace also requires a `VaultConnection` named `my-vault-connection` so
+Vault secrets can be synced. Example:
+
+```yaml
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: VaultConnection
+metadata:
+  name: my-vault-connection
+  namespace: <namespace>
+spec:
+  address: https://vault.leultewolde.com
+  skipTLSVerify: false
+```
+
 ## Bootstrap
 
 Create a bootstrap ArgoCD `Application` pointing to the `apps/` directory.

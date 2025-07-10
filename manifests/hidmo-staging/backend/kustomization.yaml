@@ -1,3 +1,10 @@
 namespace: hidmo-staging
 resources:
   - ../../hidmo/backend
+patchesStrategicMerge:
+  - patches/dbhost/micro1-db.yaml
+  - patches/dbhost/micro1-migrate.yaml
+  - patches/dbhost/micro2-db.yaml
+  - patches/dbhost/micro2-migrate.yaml
+  - patches/dbhost/ingredients-db.yaml
+
