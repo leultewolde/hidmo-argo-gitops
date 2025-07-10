@@ -10,3 +10,4 @@ resources:
   - vault-token.yaml
   - postgres-credentials.yaml
   - vault-connection.yaml
+  - vault-auth.yaml
