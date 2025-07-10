@@ -46,7 +46,6 @@ spec:
   address: https://vault.leultewolde.com
   skipTLSVerify: false
 ```
-
 ## Bootstrap
 
 Create a bootstrap ArgoCD `Application` pointing to the `apps/` directory.

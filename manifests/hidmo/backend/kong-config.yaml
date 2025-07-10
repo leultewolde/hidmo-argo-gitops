@@ -14,12 +14,6 @@ data:
           - name: micro1
             paths:
               - /micro1
-      - name: micro2
-        url: http://micro2
-        routes:
-          - name: micro2
-            paths:
-              - /micro2
       - name: km-ingredients-service
         url: http://km-ingredients-service:8001
         routes:
