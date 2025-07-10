@@ -2,7 +2,6 @@ namespace: hidmo-staging
 resources:
   - ../../hidmo/backend
 patchesStrategicMerge:
-  - patches/vault-token-namespace.yaml
   - patches/dbhost/micro1-db.yaml
   - patches/dbhost/micro1-migrate.yaml
   - patches/dbhost/micro2-db.yaml
