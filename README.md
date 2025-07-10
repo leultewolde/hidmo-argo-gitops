@@ -33,8 +33,8 @@ Create the following secrets in HashiCorp Vault under the `kv` engine. Argo's Va
 | `secret/postgres-systemtest/postgres-credentials` | `postgres-credentials` | `postgres-password` |
 | `secret/sonarqube/monitoring` | `sonarqube-monitoring` | `passcode` |
 
-Each namespace also requires a `VaultConnection` named `my-vault-connection` so
-Vault secrets can be synced. Example:
+Each namespace also requires a `VaultConnection` named `my-vault-connection` and
+a corresponding `VaultAuth` so Vault secrets can be synced. Example connection:
 
 ```yaml
 apiVersion: secrets.hashicorp.com/v1beta1
@@ -45,6 +45,23 @@ metadata:
 spec:
   address: https://vault.leultewolde.com
   skipTLSVerify: false
+```
+
+Example `VaultAuth` referencing that connection:
+
+```yaml
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: VaultAuth
+metadata:
+  name: my-vault-connection
+  namespace: <namespace>
+spec:
+  vaultConnectionRef: my-vault-connection
+  method: kubernetes
+  mount: kubernetes
+  kubernetes:
+    role: demo
+    serviceAccount: default
 ```
 ## Bootstrap
 
