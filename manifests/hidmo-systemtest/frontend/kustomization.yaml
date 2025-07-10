@@ -1,3 +1,6 @@
 namespace: hidmo-systemtest
 resources:
   - ../../hidmo/frontend
+patchesStrategicMerge:
+  - patches/ingress-host.yaml
+  - patches/deployment-api-url.yaml
