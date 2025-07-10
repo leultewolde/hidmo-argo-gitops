@@ -1,13 +1,12 @@
 apiVersion: secrets.hashicorp.com/v1beta1
 kind: VaultStaticSecret
 metadata:
-  name: postgres-credentials
-  namespace: postgres
+  name: vault-token
 spec:
   vaultAuthRef: my-vault-connection
   mount: kv
-  path: secret/postgres/postgres-credentials
+  path: secret/hidmo/vault-token
   type: Opaque
   destination:
     create: true
-    name: postgres-credentials
+    name: vault-token
