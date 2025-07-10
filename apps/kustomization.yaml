@@ -2,7 +2,6 @@
 resources:
   - postgres-secret.yaml
   - postgres.yaml
-  # - hidmo.yaml
   - hidmo-backend.yaml
   - hidmo-frontend.yaml
   - hidmo-backend-staging.yaml
@@ -11,8 +10,4 @@ resources:
   - hidmo-frontend-systemtest.yaml
   - sonarqube-secret.yaml
   - sonarqube.yaml
-  - nexus.yaml
-  # - km-ingredients-service.yaml
-  # - jenkins.yaml
-  # - jenkins-rbac.yaml
   - vault.yaml
