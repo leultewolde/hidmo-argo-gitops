@@ -9,3 +9,4 @@ resources:
   - microservices/external-service
   - vault-token.yaml
   - postgres-credentials.yaml
+  - vault-connection.yaml

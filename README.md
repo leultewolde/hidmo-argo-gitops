@@ -33,6 +33,19 @@ Create the following secrets in HashiCorp Vault under the `kv` engine. Argo's Va
 | `secret/postgres-systemtest/postgres-credentials` | `postgres-credentials` | `postgres-password` |
 | `secret/sonarqube/monitoring` | `sonarqube-monitoring` | `passcode` |
 
+Each namespace also requires a `VaultConnection` named `my-vault-connection` so
+Vault secrets can be synced. Example:
+
+```yaml
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: VaultConnection
+metadata:
+  name: my-vault-connection
+  namespace: <namespace>
+spec:
+  address: https://vault.leultewolde.com
+  skipTLSVerify: false
+```
 ## Bootstrap
 
 Create a bootstrap ArgoCD `Application` pointing to the `apps/` directory.
