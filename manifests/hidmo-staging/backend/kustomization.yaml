@@ -6,4 +6,6 @@ patchesStrategicMerge:
   # - patches/dbhost/micro1-migrate.yaml
   - patches/dbhost/ingredients-db.yaml
   - patches/ingress-host.yaml
+  - patches/external-service-spring-profile.yaml
+  - patches/ingredients-service-spring-profile.yaml
 
