@@ -4,7 +4,7 @@ resources:
   - ingress.yaml
   - kong-config.yaml
   - microservices/micro1
-  - microservices/micro2
+  # - microservices/micro2
   - microservices/ingredients-service
   - microservices/external-service
   - vault-token.yaml
