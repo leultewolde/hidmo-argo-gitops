@@ -9,7 +9,7 @@ spec:
         - name: create-db
           args:
             - "-h"
-            - "postgres-postgresql.postgres-systemtest.svc.cluster.local"
+            - "postgres-systemtest-postgresql.postgres-systemtest.svc.cluster.local"
             - "-U"
             - "postgres"
             - "-f"
