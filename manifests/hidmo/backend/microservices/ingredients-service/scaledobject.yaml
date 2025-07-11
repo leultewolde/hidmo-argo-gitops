@@ -1,0 +1,16 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: km-ingredients-service-scaledobject
+spec:
+  scaleTargetRef:
+    name: km-ingredients-service
+  minReplicaCount: 1
+  maxReplicaCount: 5
+  cooldownPeriod: 30
+  pollingInterval: 15
+  triggers:
+  - type: cpu
+    metadata:
+      type: Utilization
+      value: "50"
