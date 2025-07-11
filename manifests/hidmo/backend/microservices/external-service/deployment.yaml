@@ -26,7 +26,7 @@ spec:
             - name: VAULT_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: vault-token
+                  name: VAULT_TOKEN
                   key: VAULT_TOKEN
           livenessProbe:
             httpGet:
