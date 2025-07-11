@@ -71,10 +71,17 @@ spec:
                 secretKeyRef:
                   name: backend-secrets
                   key: splunk-token
-          livenessProbe:
-            httpGet:
-              path: /actuator/health/liveness
-              port: 8001
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "512Mi"
+          limits:
+            cpu: "400m"
+            memory: "1024Mi"
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8001
             initialDelaySeconds: 30
             periodSeconds: 10
             timeoutSeconds: 5
