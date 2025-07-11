@@ -12,5 +12,5 @@ spec:
   triggers:
   - type: cpu
     metadata:
-      metricType: Utilization
+      type: Utilization
       value: "50"
