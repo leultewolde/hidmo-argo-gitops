@@ -66,6 +66,11 @@ spec:
                 secretKeyRef:
                   name: backend-secrets
                   key: minio-bucket
+            - name: SPLUNK_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secrets
+                  key: splunk-token
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
