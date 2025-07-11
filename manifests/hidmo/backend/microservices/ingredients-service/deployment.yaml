@@ -19,7 +19,6 @@ spec:
           ports:
             - containerPort: 8001
           env:
-            env:
             - name: JAVA_TOOL_OPTIONS
               value: "-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
             - name: SPRING_PROFILES_ACTIVE
@@ -85,7 +84,7 @@ spec:
             httpGet:
               path: /actuator/health/liveness
               port: 8001
-              initialDelaySeconds: 90
+              initialDelaySeconds: 60
               periodSeconds: 10
               timeoutSeconds: 10
               failureThreshold: 10
@@ -93,7 +92,7 @@ spec:
             httpGet:
               path: /actuator/health/readiness
               port: 8001
-            initialDelaySeconds: 90
+            initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 10
             failureThreshold: 10
