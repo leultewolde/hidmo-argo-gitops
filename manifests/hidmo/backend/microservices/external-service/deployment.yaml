@@ -17,7 +17,7 @@ spec:
           image: docker.io/ivtheforth/external-service:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8001
+            - containerPort: 8080
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "prod"
