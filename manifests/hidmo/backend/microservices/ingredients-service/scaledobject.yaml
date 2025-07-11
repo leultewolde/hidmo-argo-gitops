@@ -1,16 +1,18 @@
-apiVersion: keda.sh/v1alpha1
-kind: ScaledObject
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
 metadata:
-  name: km-ingredients-service-scaledobject
+  name: km-ingredients-service-hpa
 spec:
   scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
     name: km-ingredients-service
-  minReplicaCount: 1
-  maxReplicaCount: 5
-  cooldownPeriod: 30
-  pollingInterval: 15
-  triggers:
-  - type: cpu
-    metadata:
-      type: Utilization
-      value: "50"
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
