@@ -71,26 +71,26 @@ spec:
                 secretKeyRef:
                   name: backend-secrets
                   key: splunk-token
-        resources:
-          requests:
-            cpu: "200m"
-            memory: "512Mi"
-          limits:
-            cpu: "400m"
-            memory: "1024Mi"
-        livenessProbe:
-          httpGet:
-            path: /actuator/health/liveness
-            port: 8001
-            initialDelaySeconds: 30
-            periodSeconds: 10
-            timeoutSeconds: 5
-            failureThreshold: 3
-          readinessProbe:
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "512Mi"
+            limits:
+              cpu: "400m"
+              memory: "1024Mi"
+          livenessProbe:
             httpGet:
-              path: /actuator/health/readiness
+              path: /actuator/health/liveness
               port: 8001
-            initialDelaySeconds: 5
-            periodSeconds: 10
-            timeoutSeconds: 5
-            failureThreshold: 3
+              initialDelaySeconds: 30
+              periodSeconds: 10
+              timeoutSeconds: 5
+              failureThreshold: 3
+            readinessProbe:
+              httpGet:
+                path: /actuator/health/readiness
+                port: 8001
+              initialDelaySeconds: 5
+              periodSeconds: 10
+              timeoutSeconds: 5
+              failureThreshold: 3
