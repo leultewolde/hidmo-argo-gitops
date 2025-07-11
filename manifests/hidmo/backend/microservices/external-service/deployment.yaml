@@ -27,7 +27,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: backend-secrets
-                  key: VAULT_TOKEN
+                  key: vault-token
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness

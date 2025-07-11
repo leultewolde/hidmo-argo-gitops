@@ -25,7 +25,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: backend-secrets
-                  key: VAULT_TOKEN
+                  key: vault-token
             - name: NEW_RELIC_LICENSE_KEY
               valueFrom:
                 secretKeyRef:
