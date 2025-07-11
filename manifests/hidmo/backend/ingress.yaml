@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: hidmo-backend
 spec:
-  ingressClassName: kong
+  # ingressClassName: kong
   rules:
     - host: api-hidmo.leultewolde.com
       http:
