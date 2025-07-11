@@ -19,8 +19,9 @@ spec:
           ports:
             - containerPort: 8001
           env:
+            env:
             - name: JAVA_TOOL_OPTIONS
-              value: "-Xmx768m -Xms512m"
+              value: "-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
             - name: SPRING_PROFILES_ACTIVE
               value: "prod"
             - name: VAULT_TOKEN
