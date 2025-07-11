@@ -28,6 +28,13 @@ spec:
                 secretKeyRef:
                   name: backend-secrets
                   key: vault-token
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "200m"
+              memory: "768Mi"
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
