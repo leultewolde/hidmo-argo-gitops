@@ -23,11 +23,6 @@ spec:
               value: "prod"
             - name: EXTERNAL_API_BASE_URL
               value: "https://world.openfoodfacts.org"
-            - name: VAULT_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: backend-secrets
-                  key: vault-token
           resources:
             requests:
               cpu: "100m"

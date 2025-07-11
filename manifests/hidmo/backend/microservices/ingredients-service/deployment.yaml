@@ -19,15 +19,8 @@ spec:
           ports:
             - containerPort: 8001
           env:
-            - name: JAVA_TOOL_OPTIONS
-              value: "-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
             - name: SPRING_PROFILES_ACTIVE
               value: "prod"
-            - name: VAULT_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: backend-secrets
-                  key: vault-token
             - name: NEW_RELIC_LICENSE_KEY
               valueFrom:
                 secretKeyRef:
@@ -75,7 +68,7 @@ spec:
                   key: splunk-token
           resources:
             requests:
-              cpu: "200m"
+              cpu: "400m"
               memory: "1024Mi"
             limits:
               cpu: "800m"
