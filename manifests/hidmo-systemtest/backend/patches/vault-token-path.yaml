@@ -1,0 +1,6 @@
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: VaultStaticSecret
+metadata:
+  name: vault-token
+spec:
+  path: hidmo/kitchen/backend/systemtest

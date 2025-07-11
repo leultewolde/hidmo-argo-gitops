@@ -8,4 +8,5 @@ patchesStrategicMerge:
   - patches/ingress-host.yaml
   - patches/external-service-spring-profile.yaml
   - patches/ingredients-service-spring-profile.yaml
+  - patches/vault-token-path.yaml
 
