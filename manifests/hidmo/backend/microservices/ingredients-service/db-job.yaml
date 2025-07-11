@@ -13,8 +13,8 @@ spec:
             - name: PGPASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres-credentials
-                  key: postgres-password
+                  name: backend-secrets
+                  key: db-password
           command: ["psql"]
           args:
             - "-h"

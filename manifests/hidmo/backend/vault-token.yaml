@@ -5,8 +5,8 @@ metadata:
 spec:
   vaultAuthRef: my-vault-connection
   mount: secret
-  path: hidmo/vault-token
+  path: hidmo/kitchen/backend/prod
   type: kv-v2
   destination:
     create: true
-    name: vault-token
+    name: backend-secrets
