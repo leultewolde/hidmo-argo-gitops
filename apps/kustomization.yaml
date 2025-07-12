@@ -2,14 +2,14 @@
 resources:
   - postgres-secret.yaml
   - postgres.yaml
-  - postgres-staging.yaml
-  - postgres-systemtest.yaml
+  # - postgres-staging.yaml
+  # - postgres-systemtest.yaml
   - hidmo-backend.yaml
   - hidmo-frontend.yaml
-  - hidmo-backend-staging.yaml
-  - hidmo-frontend-staging.yaml
-  - hidmo-backend-systemtest.yaml
-  - hidmo-frontend-systemtest.yaml
+  # - hidmo-backend-staging.yaml
+  # - hidmo-frontend-staging.yaml
+  # - hidmo-backend-systemtest.yaml
+  # - hidmo-frontend-systemtest.yaml
   - sonarqube-secret.yaml
   - sonarqube.yaml
   - vault.yaml

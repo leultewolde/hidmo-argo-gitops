@@ -68,13 +68,6 @@ spec:
                 secretKeyRef:
                   name: backend-secrets
                   key: splunk-token
-          resources:
-            requests:
-              cpu: "400m"
-              memory: "512Mi"
-            limits:
-              cpu: "800m"
-              memory: "1024Mi"
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness

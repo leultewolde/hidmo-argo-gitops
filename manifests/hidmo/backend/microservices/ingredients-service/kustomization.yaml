@@ -2,7 +2,7 @@ resources:
 - deployment.yaml
 - service.yaml
 - db-job.yaml
-- scaledobject.yaml
+# - scaledobject.yaml
 generatorOptions:
   disableNameSuffixHash: true
 configMapGenerator:

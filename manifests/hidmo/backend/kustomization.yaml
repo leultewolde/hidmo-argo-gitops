@@ -9,4 +9,4 @@ resources:
   - vault-token.yaml
   - vault-connection.yaml
   - vault-auth.yaml
-  - scaledobject.yaml
+  # - scaledobject.yaml

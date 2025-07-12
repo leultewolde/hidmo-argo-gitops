@@ -23,13 +23,6 @@ spec:
               value: "prod"
             - name: EXTERNAL_API_BASE_URL
               value: "https://world.openfoodfacts.org"
-          resources:
-            requests:
-              cpu: "100m"
-              memory: "256Mi"
-            limits:
-              cpu: "200m"
-              memory: "768Mi"
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
