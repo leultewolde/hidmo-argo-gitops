@@ -20,3 +20,10 @@ spec:
           env:
             - name: VITE_API_URL
               value: "https://api-hidmo.leultewolde.com/kitchen/stored-items"
+          resources:
+            requests:
+              cpu: "400m"
+              memory: "512Mi"
+            limits:
+              cpu: "800m"
+              memory: "1024Mi"
