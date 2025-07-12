@@ -84,3 +84,10 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 10
             failureThreshold: 10
+          resources:
+            requests:
+              cpu: "400m"
+              memory: "1024Mi"
+            limits:
+              cpu: "800m"
+              memory: "2048Mi"
