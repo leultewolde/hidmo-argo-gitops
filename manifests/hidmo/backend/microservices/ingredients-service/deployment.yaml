@@ -72,15 +72,15 @@ spec:
             httpGet:
               path: /actuator/health/liveness
               port: 8001
-            initialDelaySeconds: 30
-            periodSeconds: 5
-            timeoutSeconds: 5
-            failureThreshold: 5
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 10
+            failureThreshold: 10
           readinessProbe:
             httpGet:
               path: /actuator/health/readiness
               port: 8001
-            initialDelaySeconds: 30
-            periodSeconds: 5
-            timeoutSeconds: 5
-            failureThreshold: 5
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 10
+            failureThreshold: 10
