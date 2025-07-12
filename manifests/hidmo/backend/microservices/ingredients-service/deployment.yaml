@@ -72,7 +72,7 @@ spec:
             httpGet:
               path: /actuator/health/liveness
               port: 8001
-            initialDelaySeconds: 60
+            initialDelaySeconds: 30
             periodSeconds: 10
             timeoutSeconds: 10
             failureThreshold: 10
@@ -80,14 +80,14 @@ spec:
             httpGet:
               path: /actuator/health/readiness
               port: 8001
-            initialDelaySeconds: 60
+            initialDelaySeconds: 30
             periodSeconds: 10
             timeoutSeconds: 10
             failureThreshold: 10
           resources:
             requests:
               cpu: "400m"
-              memory: "1024Mi"
+              memory: "512Mi"
             limits:
               cpu: "800m"
-              memory: "2048Mi"
+              memory: "1024Mi"
