@@ -19,6 +19,8 @@ spec:
           ports:
             - containerPort: 8001
           env:
+            - name: JAVA_TOOL_OPTIONS
+              value: "-Xmx512m -Xms512m"
             - name: SPRING_PROFILES_ACTIVE
               value: "prod"
             - name: NEW_RELIC_LICENSE_KEY
@@ -69,10 +71,10 @@ spec:
           resources:
             requests:
               cpu: "400m"
-              memory: "2048Mi"
+              memory: "512Mi"
             limits:
               cpu: "800m"
-              memory: "4096Mi"
+              memory: "1024Mi"
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
