@@ -17,6 +17,9 @@ spec:
           enabled: true
           storageClass: local-path
           size: 5Gi
+        plugins:
+          install:
+            - https://github.com/sonar-auth-oidc/sonar-auth-oidc/releases/download/v3.0.0/sonar-auth-oidc-plugin-3.0.0.jar
         service:
           type: LoadBalancer
           annotations:
@@ -30,9 +33,12 @@ spec:
         monitoringPasscodeSecretName: sonarqube-monitoring
         monitoringPasscodeSecretKey: passcode
         sonarProperties:
+          sonar.core.serverBaseURL: https://sonar.leultewolde.com
           sonar.auth.oidc.enabled: "true"
           sonar.auth.oidc.issuerUri: https://auth.leultewolde.com/realms/hidmo
           sonar.auth.oidc.clientId: sonarqube-client
+          sonar.forceAuthentication: "true"
+        sonarSecretProperties: sonarqube-oidc
         env:
           - name: SONAR_AUTH_OIDC_CLIENT_SECRET
             valueFrom:
