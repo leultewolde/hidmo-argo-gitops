@@ -32,6 +32,8 @@ Create the following secrets in HashiCorp Vault under the `kv` engine. Argo's Va
 | `secret/postgres-staging/postgres-credentials` | `postgres-credentials` | `postgres-password` |
 | `secret/postgres-systemtest/postgres-credentials` | `postgres-credentials` | `postgres-password` |
 | `secret/sonarqube/monitoring` | `sonarqube-monitoring` | `passcode` |
+| `secret/sonarqube/oidc` | `sonarqube-oidc` | `secret.properties` |
+| `secret/argocd/oidc` | `argocd-secret` | `oidc.keycloak.clientSecret` |
 
 Each namespace also requires a `VaultConnection` named `my-vault-connection` and
 a corresponding `VaultAuth` so Vault secrets can be synced. Example connection:

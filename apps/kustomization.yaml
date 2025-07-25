@@ -13,3 +13,4 @@ resources:
   - sonarqube-secret.yaml
   - sonarqube.yaml
   - vault.yaml
+  - argocd-oidc.yaml

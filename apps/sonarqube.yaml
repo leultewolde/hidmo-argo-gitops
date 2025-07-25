@@ -27,6 +27,11 @@ spec:
             enabled: true
             storageClass: local-path
             size: 5Gi
+        sonarProperties:
+          sonar.auth.oidc.enabled: "true"
+          sonar.auth.oidc.issuerUri: https://auth.leultewolde.com/realms/hidmo
+          sonar.auth.oidc.clientId: sonarqube-client
+        sonarSecretProperties: sonarqube-oidc
         monitoringPasscodeSecretName: sonarqube-monitoring
         monitoringPasscodeSecretKey: passcode
       releaseName: sonarqube

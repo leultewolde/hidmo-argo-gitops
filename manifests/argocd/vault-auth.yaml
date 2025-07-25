@@ -1,0 +1,12 @@
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: VaultAuth
+metadata:
+  name: my-vault-connection
+  namespace: argocd
+spec:
+  vaultConnectionRef: my-vault-connection
+  method: kubernetes
+  mount: kubernetes
+  kubernetes:
+    role: universal-role
+    serviceAccount: default
