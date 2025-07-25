@@ -29,6 +29,16 @@ spec:
             size: 5Gi
         monitoringPasscodeSecretName: sonarqube-monitoring
         monitoringPasscodeSecretKey: passcode
+        sonarProperties:
+          sonar.auth.oidc.enabled: "true"
+          sonar.auth.oidc.issuerUri: https://auth.leultewolde.com/realms/hidmo
+          sonar.auth.oidc.clientId: sonarqube-client
+        env:
+          - name: SONAR_AUTH_OIDC_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: sonarqube-oidc
+                key: client-secret
       releaseName: sonarqube
   destination:
     server: https://kubernetes.default.svc
