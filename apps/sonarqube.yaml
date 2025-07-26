@@ -38,7 +38,6 @@ spec:
           sonar.auth.oidc.issuerUri: https://auth.leultewolde.com/realms/hidmo
           sonar.auth.oidc.clientId: sonarqube-client
           sonar.forceAuthentication: "true"
-        sonarSecretProperties: sonarqube-oidc
         env:
           - name: SONAR_AUTH_OIDC_CLIENT_SECRET
             valueFrom:
