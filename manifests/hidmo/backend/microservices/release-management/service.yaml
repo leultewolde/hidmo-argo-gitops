@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: release-management
+spec:
+  selector:
+    app: release-management
+  ports:
+    - port: 9090
+      targetPort: 9090
+  type: ClusterIP

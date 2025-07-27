@@ -28,3 +28,10 @@ data:
             paths:
               - /external
             strip_path: true
+      - name: release-management
+        url: http://release-management:9090
+        routes:
+          - name: release-management
+            paths:
+              - /release-management
+            strip_path: true

@@ -1,0 +1,7 @@
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: VaultConnection
+metadata:
+  name: my-vault-connection
+spec:
+  address: https://vault.leultewolde.com
+  skipTLSVerify: false

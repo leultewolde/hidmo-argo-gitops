@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hidmo-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hidmo-web
+  template:
+    metadata:
+      labels:
+        app: hidmo-web
+    spec:
+      containers:
+        - name: hidmo-web
+          image: ivtheforth/hidmo-web:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: VITE_API_URL
+              value: "https://api-hidmo.leultewolde.com/kitchen/stored-items"
+            - name: VITE_RELEASE_API_URL
+              value: "https://api-hidmo.leultewolde.com/kitchen/release-management"
+            - name: VITE_KEYCLOAK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: VITE_KEYCLOAK_URL
+            - name: VITE_KEYCLOAK_REALM
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: VITE_KEYCLOAK_REALM
+            - name: VITE_KEYCLOAK_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: VITE_KEYCLOAK_CLIENT_ID
+            - name: VITE_GITHUB_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: VITE_GITHUB_CLIENT_ID
+            - name: VITE_GITHUB_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: VITE_GITHUB_CLIENT_SECRET
+          resources:
+            requests:
+              cpu: "400m"
+              memory: "512Mi"
+            limits:
+              cpu: "800m"
+              memory: "1024Mi"

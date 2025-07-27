@@ -1,2 +1,9 @@
 resources:
   - kitchen
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+  - scaledobject.yaml
+  - vault-auth.yaml
+  - vault-connection.yaml
+  - vault-token.yaml
