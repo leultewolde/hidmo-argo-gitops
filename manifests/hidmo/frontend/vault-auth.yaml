@@ -1,10 +1,10 @@
 apiVersion: secrets.hashicorp.com/v1beta1
 kind: VaultAuth
 metadata:
-  name: my-vault-connection
+  name: hidmo-vault-connection
   namespace: hidmo
 spec:
-  vaultConnectionRef: my-vault-connection
+  vaultConnectionRef: hidmo-vault-connection
   method: kubernetes
   mount: kubernetes
   kubernetes:

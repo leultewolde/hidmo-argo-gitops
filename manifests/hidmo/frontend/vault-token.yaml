@@ -3,7 +3,7 @@ kind: VaultStaticSecret
 metadata:
   name: vault-token
 spec:
-  vaultAuthRef: my-vault-connection
+  vaultAuthRef: hidmo-vault-connection
   mount: secret
   path: hidmo/frontend/prod
   type: kv-v2
