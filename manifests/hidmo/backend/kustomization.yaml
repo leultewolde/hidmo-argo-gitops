@@ -6,6 +6,7 @@ resources:
   - microservices/micro1
   - microservices/ingredients-service
   - microservices/external-service
+  - microservices/release-management
   - vault-token.yaml
   - vault-connection.yaml
   - vault-auth.yaml
