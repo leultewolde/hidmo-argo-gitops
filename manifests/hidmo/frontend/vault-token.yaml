@@ -1,7 +1,7 @@
 apiVersion: secrets.hashicorp.com/v1beta1
 kind: VaultStaticSecret
 metadata:
-  name: vault-token
+  name: hidmo-vault-token
 spec:
   vaultAuthRef: hidmo-vault-connection
   mount: secret
