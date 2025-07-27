@@ -12,6 +12,56 @@ spec:
       labels:
         app: hidmo-web
     spec:
+      initContainers:
+        - name: generate-env
+          image: busybox:1.36
+          command: ["sh", "-c"]
+          args:
+            - |
+              cat <<'EOF' > /env/env.js
+              window._env_ = {
+                VITE_API_URL: "$VITE_API_URL",
+                VITE_RELEASE_API_URL: "$VITE_RELEASE_API_URL",
+                VITE_KEYCLOAK_URL: "$VITE_KEYCLOAK_URL",
+                VITE_KEYCLOAK_REALM: "$VITE_KEYCLOAK_REALM",
+                VITE_KEYCLOAK_CLIENT_ID: "$VITE_KEYCLOAK_CLIENT_ID",
+                VITE_GITHUB_CLIENT_ID: "$VITE_GITHUB_CLIENT_ID",
+                VITE_GITHUB_CLIENT_SECRET: "$VITE_GITHUB_CLIENT_SECRET"
+              };
+              EOF
+          env:
+            - name: VITE_API_URL
+              value: "https://api-hidmo.leultewolde.com/kitchen/stored-items"
+            - name: VITE_RELEASE_API_URL
+              value: "https://api-hidmo.leultewolde.com/kitchen/release-management"
+            - name: VITE_KEYCLOAK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: VITE_KEYCLOAK_URL
+            - name: VITE_KEYCLOAK_REALM
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: VITE_KEYCLOAK_REALM
+            - name: VITE_KEYCLOAK_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: VITE_KEYCLOAK_CLIENT_ID
+            - name: VITE_GITHUB_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: VITE_GITHUB_CLIENT_ID
+            - name: VITE_GITHUB_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: frontend-secrets
+                  key: VITE_GITHUB_CLIENT_SECRET
+          volumeMounts:
+            - name: env-js
+              mountPath: /env
       containers:
         - name: hidmo-web
           image: ivtheforth/hidmo-web:latest
@@ -54,3 +104,10 @@ spec:
             limits:
               cpu: "800m"
               memory: "1024Mi"
+          volumeMounts:
+            - name: env-js
+              mountPath: /usr/share/nginx/html/env.js
+              subPath: env.js
+      volumes:
+        - name: env-js
+          emptyDir: {}
