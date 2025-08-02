@@ -1,6 +1,9 @@
 # ArgoCD GitOps Repo
 
-This repository manages ArgoCD projects and apps declaratively via GitOps.
+This repository contains all Kubernetes manifests and ArgoCD application
+definitions for the **Hidmo** environment. Jenkins tests every change against a
+k3s cluster before allowing merges so that production infrastructure is never
+affected by invalid configuration.
 
 ## Structure
 
@@ -78,3 +81,31 @@ This project is licensed under the [MIT License](LICENSE).
 The `hidmo-backend` deployment now binds Kong's Admin API to `127.0.0.1` so it
 cannot be reached from other pods. Only the proxy ports are exposed via the
 `hidmo-backend` service and Ingress.
+
+## Jenkins Pipeline
+
+The repository includes a `Jenkinsfile` that lints and validates all manifests before they reach your real cluster.
+
+1. Create a new **Pipeline** job in Jenkins and point it at this Git repository (select **Pipeline script from SCM**).
+2. Ensure the Jenkins agent can run Docker containers so the pipeline can use the `bitnami/kubectl` image to install tools.
+3. Configure Jenkins with access to your **k3s** cluster so `kubectl` commands work (usually by providing a kubeconfig credential).
+4. Add a GitHub webhook so pushes and pull requests trigger the job.
+5. Enable branch protection in GitHub to require the Jenkins build to pass before merging.
+
+The pipeline runs `yamllint`, `kubeconform`, and performs a dry-run deployment using an ephemeral k3s cluster started with `k3d`.
+
+To test locally, run:
+
+```bash
+make test
+```
+
+## GitHub Repository Settings
+
+Configure the repository on GitHub so Jenkins can enforce quality gates:
+
+1. **Default branch** – set `main` (or your chosen branch) as the default.
+2. **Branch protection** – require the Jenkins pipeline to succeed before merging.
+3. **Webhooks** – add a webhook pointing to your Jenkins instance so new commits and pull requests trigger builds.
+4. **Secrets** – store any credentials Jenkins needs (such as kubeconfig or GitHub tokens) as encrypted secrets in Jenkins, not in the repository.
+

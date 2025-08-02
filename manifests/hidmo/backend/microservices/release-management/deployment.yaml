@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: release-management
-          image: docker.io/ivtheforth/release-management:latest
+          image: docker.io/ivtheforth/release-management:v1.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 9090
