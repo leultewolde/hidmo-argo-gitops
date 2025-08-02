@@ -71,7 +71,7 @@ spec:
             - name: VITE_API_URL
               value: "https://api-hidmo.leultewolde.com/kitchen/stored-items"
             - name: VITE_RELEASE_API_URL
-              value: "https://api-hidmo.leultewolde.com/kitchen/release-management"
+              value: "https://api-hidmo.leultewolde.com/release-management"
             - name: VITE_KEYCLOAK_URL
               valueFrom:
                 secretKeyRef:
