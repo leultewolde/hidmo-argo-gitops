@@ -18,7 +18,7 @@ spec:
           command: ["sh", "-c"]
           args:
             - |
-              cat <<'EOF' > /env/env.js
+              cat <<EOF > /env/env.js
               window._env_ = {
                 VITE_API_URL: "$VITE_API_URL",
                 VITE_RELEASE_API_URL: "$VITE_RELEASE_API_URL",
