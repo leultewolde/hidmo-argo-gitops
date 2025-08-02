@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: external-service
-          image: docker.io/ivtheforth/external-service:latest
+          image: docker.io/ivtheforth/external-service:v1.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
