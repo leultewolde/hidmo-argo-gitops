@@ -56,6 +56,11 @@ spec:
                 secretKeyRef:
                   name: backend-secrets
                   key: stmp-password
+            - name: SPLUNK_HEC_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secrets
+                  key: splunk-hec-token
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
