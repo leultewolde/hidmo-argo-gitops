@@ -51,6 +51,11 @@ spec:
                 secretKeyRef:
                   name: backend-secrets
                   key: github-client-secret
+            - name: STMP_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secrets
+                  key: stmp-password
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness

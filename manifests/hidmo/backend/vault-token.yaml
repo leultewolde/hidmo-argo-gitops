@@ -5,7 +5,7 @@ metadata:
 spec:
   vaultAuthRef: my-vault-connection
   mount: secret
-  path: hidmo/kitchen/backend/prod
+  path: hidmo/backend/prod
   type: kv-v2
   destination:
     create: true
