@@ -6,6 +6,7 @@ resources:
   # - postgres-systemtest.yaml
   - hidmo-backend.yaml
   - hidmo-frontend.yaml
+  - hidmo-web.yaml
   # - hidmo-backend-staging.yaml
   # - hidmo-frontend-staging.yaml
   # - hidmo-backend-systemtest.yaml

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hidmo-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hidmo-web
+  template:
+    metadata:
+      labels:
+        app: hidmo-web
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.25-alpine
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: static
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: static
+          persistentVolumeClaim:
+            claimName: hidmo-web-pvc
