@@ -3,10 +3,6 @@ kind: Ingress
 metadata:
   name: hidmo-web
 spec:
-  tls:
-    - hosts:
-        - hidmo.leultewolde.com
-      secretName: hidmo-web-tls
   rules:
     - host: hidmo.leultewolde.com
       http:
