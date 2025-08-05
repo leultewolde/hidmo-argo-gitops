@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hidmo-web
+spec:
+  tls:
+    - hosts:
+        - hidmo.leultewolde.com
+      secretName: hidmo-web-tls
+  rules:
+    - host: hidmo.leultewolde.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: hidmo-web
+                port:
+                  number: 80
