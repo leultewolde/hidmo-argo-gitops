@@ -7,18 +7,6 @@ spec:
   template:
     spec:
       restartPolicy: OnFailure
-      initContainers:
-        - name: wait-for-kafka
-          image: bitnami/kafka:3.6.0
-          command: [ "/bin/bash","-lc" ]
-          args:
-            - |
-              for i in {1..60}; do
-                kafka-topics.sh --bootstrap-server kafka:9092 --list >/dev/null 2>&1 && exit 0
-                echo "Waiting for kafka:9092 ($i/60) ..."
-                sleep 2
-              done
-              echo "Kafka not reachable after 120s"; exit 1
       containers:
         - name: create-topics
           image: bitnami/kafka:3.6.0
