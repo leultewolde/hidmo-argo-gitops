@@ -1,0 +1,26 @@
+flowchart LR
+    subgraph Release Management
+        A[Release Service] -->|Outbox→Kafka| K((Kafka))
+    end
+
+subgraph Notification Service
+K --> C[Kafka Consumers]
+C --> M[Message Router\n Event to Template]
+M --> U[Audience Resolver\n User & Token Store]
+U --> B[Batcher\n less than or equal 100 msgs]
+B --> X[Expo Push Client]
+X --> R[Ticket Store]
+S[Receipt Worker\n Scheduled] -->|ticketIds| X
+X -->|receipts| S
+S --> U
+S --> O[Outcome Publisher\n optional Kafka]
+end
+
+RDS[(Postgres)]
+U --- RDS
+R --- RDS
+subgraph Ops
+H[Actuator/Prometheus]:::ops
+L[Splunk/ELK]:::ops
+end
+classDef ops fill:#eef,stroke:#66c
