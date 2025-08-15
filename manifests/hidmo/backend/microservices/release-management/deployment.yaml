@@ -61,6 +61,12 @@ spec:
                 secretKeyRef:
                   name: backend-secrets
                   key: splunk-hec-token
+            - name: KAFKA_BOOTSTRAP_SERVERS
+              value: "kafka:9092"
+            - name: KAFKA_RELEASE_EVENTS_TOPIC
+              value: "release.events.v1"
+            - name: KAFKA_BUILD_EVENTS_TOPIC
+              value: "build.events.v1"
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
