@@ -1,0 +1,21 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kafka-create-topics
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: create-topics
+          image: bitnami/kafka:3.6.0
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              kafka-topics.sh --bootstrap-server kafka:9092 \
+                --create --if-not-exists --topic release.events.v1 &&
+              kafka-topics.sh --bootstrap-server kafka:9092 \
+                --create --if-not-exists --topic build.events.v1 &&
+              kafka-topics.sh --bootstrap-server kafka:9092 \
+                --create --if-not-exists --topic notifications.outcomes.v1

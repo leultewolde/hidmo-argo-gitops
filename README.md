@@ -22,6 +22,28 @@ affected by invalid configuration.
   - Sonatype Nexus Repository Pro is reachable at `nexus.leultewolde.com` for storing artifacts via Sonatype's `nxrm-ha` Helm chart
 - HashiCorp Vault UI is reachable at `vault.leultewolde.com` for managing secrets
 - Argo Image Updater keeps `km-ingredients-service` up to date automatically via git write-back.
+- Kafka broker available at the `kafka` service exposes topics for release, build, and notification events
+
+## Kafka Events
+
+A single-node Kafka broker runs inside the cluster and is reachable at the
+`kafka` service on port `9092`. The release management service publishes
+messages to two topics:
+
+- `release.events.v1` (key: `releaseId`)
+- `build.events.v1` (key: `buildId` or `releaseId` for co-partitioning)
+
+The `notifications.outcomes.v1` topic is also created for downstream analytics.
+
+Other services can consume or produce these events by configuring the following
+environment variables:
+
+| Variable | Value |
+|----------|-------|
+| `KAFKA_BOOTSTRAP_SERVERS` | `kafka:9092` |
+| `KAFKA_RELEASE_EVENTS_TOPIC` | `release.events.v1` |
+| `KAFKA_BUILD_EVENTS_TOPIC` | `build.events.v1` |
+| `KAFKA_NOTIFICATIONS_OUTCOMES_TOPIC` | `notifications.outcomes.v1` |
 
 ## Vault Secrets
 
