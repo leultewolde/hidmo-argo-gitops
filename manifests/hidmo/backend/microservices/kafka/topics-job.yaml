@@ -14,8 +14,8 @@ spec:
           args:
             - |
               kafka-topics.sh --bootstrap-server kafka:9092 \
-                --create --if-not-exists --topic release.events.v1
+                --create --if-not-exists --topic release.events.v1 &&
               kafka-topics.sh --bootstrap-server kafka:9092 \
-                --create --if-not-exists --topic build.events.v1
+                --create --if-not-exists --topic build.events.v1 &&
               kafka-topics.sh --bootstrap-server kafka:9092 \
                 --create --if-not-exists --topic notifications.outcomes.v1
