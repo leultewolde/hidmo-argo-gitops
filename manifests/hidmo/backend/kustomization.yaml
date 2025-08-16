@@ -7,6 +7,7 @@ resources:
   - microservices/ingredients-service
   - microservices/external-service
   - microservices/release-management
+  - microservices/notification-service
   - microservices/kafka
   - vault-token.yaml
   - vault-connection.yaml

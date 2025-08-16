@@ -35,3 +35,10 @@ data:
             paths:
               - /release-management
             strip_path: true
+      - name: notification-service
+        url: http://notification-service:8080
+        routes:
+          - name: notification-service
+            paths:
+              - /notifications
+            strip_path: true
