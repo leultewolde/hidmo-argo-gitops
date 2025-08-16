@@ -12,7 +12,14 @@ spec:
       labels:
         app: notification-service
     spec:
-      serviceAccountName: notification-service-sa
+      volumes:
+        - name: vault-token
+          projected:
+            sources:
+              - serviceAccountToken:
+                  path: token
+                  expirationSeconds: 600
+                  audience: vault
       containers:
         - name: notification-service
           image: docker.io/ivtheforth/notification-service:latest
@@ -22,6 +29,14 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "prod"
+            - name: SPRING_CLOUD_VAULT_AUTHENTICATION
+              value: kubernetes
+            - name: SPRING_CLOUD_VAULT_KUBERNETES_ROLE
+              value: notification-service
+            - name: SPRING_CLOUD_VAULT_KUBERNETES_SERVICE_ACCOUNT_TOKEN_FILE
+              value: /var/run/secrets/tokens/token
+            - name: SPRING_CLOUD_VAULT_URI
+              value: https://vault.leultewolde.com
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
