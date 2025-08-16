@@ -22,6 +22,10 @@ spec:
                   audience: vault
       containers:
         - name: notification-service
+          volumeMounts:
+            - name: vault-token
+              mountPath: /var/run/secrets/tokens
+              readOnly: true
           image: docker.io/ivtheforth/notification-service:latest
           imagePullPolicy: Always
           ports:
