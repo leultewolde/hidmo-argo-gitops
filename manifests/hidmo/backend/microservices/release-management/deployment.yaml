@@ -12,6 +12,7 @@ spec:
       labels:
         app: release-management
     spec:
+      serviceAccountName: release-management-sa
       containers:
         - name: release-management
           image: docker.io/ivtheforth/release-management:latest
