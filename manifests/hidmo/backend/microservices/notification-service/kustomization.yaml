@@ -1,0 +1,13 @@
+resources:
+- deployment.yaml
+- service.yaml
+- db-job.yaml
+- scaledobject.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+configMapGenerator:
+- name: notification-service-create-db
+  files:
+  - sql/create-db.sql

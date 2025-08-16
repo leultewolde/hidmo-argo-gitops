@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: notification-service-create-db
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: create-db
+          image: postgres:15
+          env:
+            - name: PGPASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secrets
+                  key: db-password
+          command: ["psql"]
+          args:
+            - "-h"
+            - "postgres-postgresql.postgres.svc.cluster.local"
+            - "-U"
+            - "postgres"
+            - "-f"
+            - "/scripts/create-db.sql"
+          volumeMounts:
+            - name: db-script
+              mountPath: /scripts
+      volumes:
+        - name: db-script
+          configMap:
+            name: notification-service-create-db
