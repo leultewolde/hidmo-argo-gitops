@@ -1,7 +1,7 @@
 ---
 resources:
-  - postgres-secret.yaml
-  - postgres.yaml
+#  - postgres-secret.yaml
+#  - postgres.yaml
   # - postgres-staging.yaml
   # - postgres-systemtest.yaml
   - hidmo-backend.yaml
