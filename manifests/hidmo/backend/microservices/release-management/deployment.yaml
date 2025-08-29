@@ -12,9 +12,21 @@ spec:
       labels:
         app: release-management
     spec:
-      serviceAccountName: release-management-sa
+      serviceAccountName: release-management
+      volumes:
+        - name: vault-token
+          projected:
+            sources:
+              - serviceAccountToken:
+                  path: token
+                  expirationSeconds: 7200
+                  audience: vault
       containers:
         - name: release-management
+          volumeMounts:
+            - name: vault-token
+              mountPath: /var/run/secrets/tokens
+              readOnly: true
           image: docker.io/ivtheforth/release-management:latest
           imagePullPolicy: Always
           ports:
@@ -22,46 +34,46 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: "prod"
-            - name: DB_URL
-              valueFrom:
-                secretKeyRef:
-                  name: backend-secrets
-                  key: release-db-url
-            - name: DB_USER
-              valueFrom:
-                secretKeyRef:
-                  name: backend-secrets
-                  key: db-user
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: backend-secrets
-                  key: db-password
-            - name: KEYCLOAK_CLIENT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: backend-secrets
-                  key: keycloak-client-secret
-            - name: GITHUB_CLIENT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: backend-secrets
-                  key: github-client-id
-            - name: GITHUB_CLIENT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: backend-secrets
-                  key: github-client-secret
-            - name: STMP_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: backend-secrets
-                  key: stmp-password
-            - name: SPLUNK_HEC_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: backend-secrets
-                  key: splunk-hec-token
+#            - name: DB_URL
+#              valueFrom:
+#                secretKeyRef:
+#                  name: backend-secrets
+#                  key: release-db-url
+#            - name: DB_USER
+#              valueFrom:
+#                secretKeyRef:
+#                  name: backend-secrets
+#                  key: db-user
+#            - name: DB_PASSWORD
+#              valueFrom:
+#                secretKeyRef:
+#                  name: backend-secrets
+#                  key: db-password
+#            - name: KEYCLOAK_CLIENT_SECRET
+#              valueFrom:
+#                secretKeyRef:
+#                  name: backend-secrets
+#                  key: keycloak-client-secret
+#            - name: GITHUB_CLIENT_ID
+#              valueFrom:
+#                secretKeyRef:
+#                  name: backend-secrets
+#                  key: github-client-id
+#            - name: GITHUB_CLIENT_SECRET
+#              valueFrom:
+#                secretKeyRef:
+#                  name: backend-secrets
+#                  key: github-client-secret
+#            - name: STMP_PASSWORD
+#              valueFrom:
+#                secretKeyRef:
+#                  name: backend-secrets
+#                  key: stmp-password
+#            - name: SPLUNK_HEC_TOKEN
+#              valueFrom:
+#                secretKeyRef:
+#                  name: backend-secrets
+#                  key: splunk-hec-token
             - name: KAFKA_BOOTSTRAP_SERVERS
               value: "kafka:9092"
             - name: KAFKA_RELEASE_EVENTS_TOPIC
